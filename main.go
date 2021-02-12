@@ -44,4 +44,10 @@ func main() {
 	fmt.Printf("export AWS_ACCESS_KEY_ID=%s\n", *result.Credentials.AccessKeyId)
 	fmt.Printf("export AWS_SECRET_ACCESS_KEY=%s\n", *result.Credentials.SecretAccessKey)
 	fmt.Printf("export AWS_SESSION_TOKEN=%s\n", *result.Credentials.SessionToken)
+
+	fmt.Println("\n------------------------------------")
+	fmt.Println("use these commands to unset envs")
+	fmt.Println("unset AWS_ACCESS_KEY_ID")
+	fmt.Println("unset AWS_SECRET_ACCESS_KEY")
+	fmt.Println("unset AWS_SESSION_TOKEN")
 }
