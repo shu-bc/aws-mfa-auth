@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"os"
 	"strings"
@@ -11,6 +12,14 @@ import (
 )
 
 func main() {
+	var unsetFlag = flag.Bool("u", false, "unset command")
+	flag.Parse()
+
+	if *unsetFlag {
+		printUnsetEnv()
+		return
+	}
+
 	if len(os.Args) < 2 {
 		fmt.Println("please provide your token")
 		return
@@ -46,6 +55,10 @@ func main() {
 	fmt.Printf("export AWS_SESSION_TOKEN=%s\n", *result.Credentials.SessionToken)
 
 	fmt.Println("\n------------------------------------")
+	printUnsetEnv()
+}
+
+func printUnsetEnv() {
 	fmt.Println("use these commands to unset envs")
 	fmt.Println("unset AWS_ACCESS_KEY_ID")
 	fmt.Println("unset AWS_SECRET_ACCESS_KEY")
