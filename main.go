@@ -13,6 +13,7 @@ import (
 
 func main() {
 	var unsetFlag = flag.Bool("u", false, "unset command")
+	var duration = flag.Int64("d", 3600, "token expire duration(sec)")
 	flag.Parse()
 
 	if *unsetFlag {
@@ -40,7 +41,7 @@ func main() {
 	serial := strings.ReplaceAll(*identity.Arn, "user", "mfa")
 
 	input := &sts.GetSessionTokenInput{
-		DurationSeconds: aws.Int64(3600),
+		DurationSeconds: aws.Int64(*duration),
 		SerialNumber:    &serial,
 		TokenCode:       &token,
 	}
