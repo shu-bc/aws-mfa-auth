@@ -26,4 +26,16 @@ archives:
         format: zip
 release:
   prerelease: auto
+brews:
+  -
+    name: aws-mfa-auth
+    tap:
+      owner: shu-bc
+      name: aws-mfa-auth
+    commit_author:
+      name: shu-bc
+      email: evansdeby@gmail.com
+    homepage: https://github.com/shu-bc/aws-mfa-auth
+    install: |
+      bin.install "aws-mfa-auth"
 
