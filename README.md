@@ -9,6 +9,23 @@ brew install aws-mfa-auth
 ```
 
 ## 使い方
+### 準備
+`~/.aws/credentials`に以下のようにdefault profile が用意されていること
+```
+[default]
+aws_access_key_id = 
+aws_secret_access_key = 
+
+```
+以下の環境変数がセットされていないこと
+（＊セットされている場合は上記のcredentialsファイルよりは優先されてしまうのでご注意を)
+```
+AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY
+AWS_SESSION_TOKEN
+```
+
+### 利用
 ```
 $aws-mfa-auth ****** # ６桁の数字
 export AWS_ACCESS_KEY_ID=
